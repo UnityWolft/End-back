@@ -1,0 +1,209 @@
+:root{
+    --gap: 0.75rem;
+    --radius: 12px;
+    --card-padding: 1.5rem;
+    --max-content-width: 1100px;
+    --accent: Highlight;
+    --accent-text: HighlightText;
+    --bg: Canvas;
+    --text: CanvasText;
+    --muted: color-mix(in srgb, CanvasText 60%, Canvas 40%);
+    color-scheme: light dark;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+}
+
+html,body{
+    height:100%;
+}
+
+body{
+    margin:0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background: var(--bg);
+    color: var(--text);
+    line-height:1.45;
+    -webkit-text-size-adjust:100%;
+}
+
+main{
+    max-width: var(--max-content-width);
+    width: min(95%, var(--max-content-width));
+    margin-inline:auto;
+    padding: 1.25rem;
+}
+
+h1,h2,h3{ font-weight:600; margin:0 0 0.5rem 0; }
+
+a{ color: var(--accent); }
+a:hover, a:focus{ text-decoration: underline; }
+
+footer{ text-align:center; margin-top:2rem; padding:1rem 0; border-top:1px solid color-mix(in srgb, var(--text) 10%, transparent); color: color-mix(in srgb, var(--text) 60%, var(--bg) 40%); }
+
+header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:var(--gap);
+.action-form {
+    display: inline-block;
+    margin: 0;
+}
+    padding:0.6rem 1rem;
+    border-bottom:1px solid color-mix(in srgb, var(--text) 8%, transparent);
+    background: color-mix(in srgb, var(--bg) 70%, transparent);
+}
+
+#hamburguesa{
+    background: transparent;
+    border:1px solid transparent;
+    padding:0.4rem 0.6rem;
+    border-radius:8px;
+.users-table td .btn {
+    display: inline-block;
+    min-width: 6.5rem;
+    text-align: center;
+    vertical-align: middle;
+}
+.users-table td .action-form {
+    display: inline-block;
+    margin-left: 0.5rem;
+}
+.users-table td .action-form .btn {
+    margin: 0;
+}
+    font-size:1.15rem;
+    cursor:pointer;
+    color:var(--text);
+}
+#hamburguesa:focus{ outline:2px solid color-mix(in srgb, var(--accent) 50%, transparent); outline-offset:2px; }
+
+#navegacionAncha ul{ display:inline-flex; gap:var(--gap); list-style:none; margin:0; padding:0; }
+#navegacionAncha a{ padding:0.45rem 0.6rem; border-radius:8px; text-decoration:none; color:var(--text); }
+#navegacionAncha a:hover, #navegacionAncha a:focus{ background: color-mix(in srgb, var(--accent) 6%, transparent); }
+
+#navegacionDelSitio{
+    background: var(--bg);
+    border:1px solid color-mix(in srgb, var(--text) 8%, transparent);
+    background: #ffecec;
+    color: #900;
+    border-color: rgba(255,0,0,0.12);
+    box-shadow:0 8px 20px color-mix(in srgb, var(--text) 8%, transparent);
+}
+
+@media (max-width:599px){
+    #navegacionAncha{ display:none; }
+}
+@media (min-width:600px){
+    #navegacionDelSitio{ display:none; }
+    #hamburguesa{ display:none; }
+}
+
+@view-transition{ navigation:auto; }
+@keyframes aparece{ from{ opacity:0 } }
+@keyframes desvanece{ to{ opacity:0 } }
+::view-transition-group(root){ animation-duration:0.45s }
+::view-transition-old(root){ animation-name:desvanece }
+::view-transition-new(root){ animation-name:aparece; animation-delay:0.12s }
+
+.login-wrap{ display:grid; place-items:center; padding:2.2rem 1rem; }
+.login-card{ width: min(520px, 94vw); background: var(--bg); color: var(--text); border-radius: var(--radius); padding: var(--card-padding); border:1px solid color-mix(in srgb, var(--text) 8%, transparent); box-shadow: 0 10px 30px color-mix(in srgb, var(--text) 8%, transparent); text-align:left; }
+.login-card h1{ font-size:1.5rem; margin-bottom:0.25rem; }
+.login-card p.lead{ margin:0 0 1rem 0; color: var(--text); opacity:0.9 }
+.login-card form{ display:grid; gap:0.85rem; margin-top:0.8rem }
+
+.login-card label{ display:block; font-size:0.9rem; margin-bottom:0.25rem }
+.login-card input[type="text"], .login-card input[type="password"], .login-card input[type="email"]{
+    width:100%; padding:0.85rem 1rem; border-radius:8px; border:1px solid color-mix(in srgb, var(--text) 12%, transparent); background: Field; color: FieldText; box-sizing:border-box; transition: box-shadow .12s ease, border-color .12s ease;
+}
+.login-card input:focus{ box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 14%, transparent); outline: none; border-color: color-mix(in srgb, var(--accent) 44%, transparent); }
+
+input[type="search"]{
+        padding:0.6rem 0.85rem;
+        border-radius:8px;
+        border:1px solid color-mix(in srgb, var(--text) 12%, transparent);
+        background: Field;
+        color: FieldText;
+        min-width: 220px;
+}
+input[type="search"]:focus{ box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent) 10%, transparent); outline: none; }
+
+table{ border-collapse: collapse; width:100%; }
+th{ background: color-mix(in srgb, var(--text) 6%, transparent); text-align:left; padding:0.65rem; font-weight:600 }
+td{ padding:0.6rem; border-top:1px solid color-mix(in srgb, var(--text) 6%, transparent) }
+tbody tr:nth-child(odd){ background: color-mix(in srgb, var(--text) 3%, transparent) }
+tbody tr:hover{ background: color-mix(in srgb, var(--text) 6%, transparent) }
+
+@media (max-width:800px){
+    table, thead, tbody, th, td, tr { display:block; }
+    thead { display:none; }
+    tr { margin-bottom: 0.75rem; border:1px solid color-mix(in srgb, var(--text) 6%, transparent); border-radius:8px; padding:0.5rem }
+    td { display:flex; justify-content:space-between; padding:0.6rem }
+    td:first-child{ font-weight:700 }
+}
+
+.btn{ display:inline-block; padding:0.7rem 1rem; border-radius:8px; background: var(--accent); color: var(--accent-text); border:none; cursor:pointer; text-align:center }
+.btn:hover{ filter:brightness(.96); transform: translateY(-1px); }
+.btn:active{ transform: translateY(0); }
+
+.login-card .register-link{ margin-top:0.6rem; color: var(--text); text-align:center }
+.login-card .register-link a{ font-weight:700; color:var(--accent); text-decoration:none }
+
+.muted{ color: color-mix(in srgb, var(--text) 60%, var(--bg) 40%); font-size:0.95rem }
+
+button:focus, a:focus{ outline: 2px solid color-mix(in srgb, var(--accent) 40%, transparent); outline-offset:2px }
+
+nav ul{ margin:0; padding:0; list-style:none }
+
+footer p{ margin:0; font-size:0.9rem }
+
+@media (prefers-color-scheme: dark){
+    :root{ --card-padding:1.5rem }
+    .login-card{ backdrop-filter: blur(6px); }
+}
+
+@media (prefers-color-scheme: light){
+    :root{ --card-padding:1.25rem }
+}
+
+.controls{
+    margin:1rem 0;
+    display:flex;
+    gap:0.75rem;
+    flex-wrap:wrap;
+    align-items:center;
+}
+.controls .actions{ margin-left:0 }
+.search-form{ display:flex; gap:0.5rem; align-items:center; background: color-mix(in srgb, var(--bg) 70%, transparent); padding: 0.4rem; border-radius: 10px; box-shadow: 0 6px 18px color-mix(in srgb, var(--text) 6%, transparent); }
+.search-form input[type="search"]{ border:none; background: transparent; padding:0.55rem 0.6rem; min-width:260px }
+.create-btn{ margin-left:0; padding:0.55rem 0.85rem }
+
+.row-actions{ display:flex; gap:0.5rem; align-items:center; justify-content:flex-end }
+.users-table td .btn, .users-table td .action-form .btn{ display:inline-block; margin-right:0.5rem; min-width:6.4rem; text-align:center }
+.users-table td .action-form{ margin-left:0 }
+
+.users-table{ width:100%; border-collapse:collapse }
+.users-table td .btn, .users-table td .action-form .btn{ display:inline-block; margin-right:0.5rem }
+.users-table td .action-form{ margin-left:0 }
+.users-table th{ text-align:left; padding:0.6rem; background: color-mix(in srgb, var(--text) 6%, transparent); font-weight:600 }
+.users-table td{ padding:0.6rem; border-top:1px solid color-mix(in srgb, var(--text) 6%, transparent) }
+.users-table tbody tr:nth-child(odd){ background: color-mix(in srgb, var(--text) 3%, transparent) }
+.users-table tbody tr:hover{ background: color-mix(in srgb, var(--text) 6%, transparent) }
+.users-table .id-cell{ width:6rem }
+
+.action-form{ display:inline-block; margin-left:0.5rem }
+.btn.danger{ background:#c0392b; color: #fff; border-color: rgba(0,0,0,0.06) }
+
+.empty-row td{ padding:0.8rem }
+
+.form-actions{ margin-top:0.8rem }
+.error{ color: #c0392b }
+.btn.secondary{ background: transparent; color: var(--text); border:1px solid color-mix(in srgb, var(--text) 8%, transparent); margin-left:0.5rem }
+
+@media (max-width:800px){
+    .users-table, .users-table thead, .users-table tbody, .users-table th, .users-table td, .users-table tr { display:block; }
+    .users-table thead { display:none; }
+    .users-table tr { margin-bottom: 0.75rem; border:1px solid color-mix(in srgb, var(--text) 6%, transparent); border-radius:8px; padding:0.5rem }
+    .users-table td { display:flex; justify-content:space-between; padding:0.6rem }
+    .users-table td:first-child{ font-weight:700 }
+}
